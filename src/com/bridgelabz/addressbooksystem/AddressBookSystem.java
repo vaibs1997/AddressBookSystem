@@ -9,37 +9,20 @@ public class AddressBookSystem {
     }
 }
 class PersonContact{
+    Scanner sc = new Scanner(System.in);
+    String[] arrayInput = new String[100];
+    int j = 1,i = 0;
     public void operations(){
-        String[] arrayInput = new String[100];
-        int numOfContactDetails;
-        Scanner sc = new Scanner(System.in);
-        int i = 0,j=1,choice;
+        int numOfContactDetails, choice;
         System.out.println("Create a contact list");
         System.out.println("Enter how many contact details you want to create");
         numOfContactDetails = sc.nextInt();
         int numOfDetails = numOfContactDetails;
-        while(numOfDetails > 0) {
-            System.out.println("For Person"+j);
-            System.out.println("Add first name");
-            arrayInput[i++] = sc.next();
-            System.out.println("Add last name");
-            arrayInput[i++] = sc.next();
-            System.out.println("Add address");
-            arrayInput[i++] = sc.next();
-            System.out.println("Add state");
-            arrayInput[i++] = sc.next();
-            System.out.println("Add zip");
-            arrayInput[i++] = sc.next();
-            System.out.println("Add phone number");
-            arrayInput[i++] = sc.next();
-            System.out.println("Add email");
-            arrayInput[i++] = sc.next();
-            numOfDetails--;
-            j++;
-        }
+        createContact(numOfDetails);
         System.out.println("Enter operations you want to perform contact list");
         System.out.println("1)Add new contacts");
-        System.out.println("2)Edit existing contact person");
+        System.out.println("2)Edit existing contact");
+        System.out.println("3)Delete existing contact");
         choice = sc.nextInt();
         switch (choice) {
             case 1 -> {
@@ -47,25 +30,7 @@ class PersonContact{
                 System.out.println("Enter how many contact details you want to add");
                 numOfAddedContacts = sc.nextInt();
                 int numOfAddedCon = numOfAddedContacts;
-                while (numOfAddedCon > 0) {
-                    System.out.println("For Person" + j);
-                    System.out.println("Add first name");
-                    arrayInput[i++] = sc.next();
-                    System.out.println("Add last name");
-                    arrayInput[i++] = sc.next();
-                    System.out.println("Add address");
-                    arrayInput[i++] = sc.next();
-                    System.out.println("Add state");
-                    arrayInput[i++] = sc.next();
-                    System.out.println("Add zip");
-                    arrayInput[i++] = sc.next();
-                    System.out.println("Add phone number");
-                    arrayInput[i++] = sc.next();
-                    System.out.println("Add email");
-                    arrayInput[i++] = sc.next();
-                    numOfAddedCon--;
-                    j++;
-                }
+                createContact(numOfAddedCon);
                 System.out.println();
                 System.out.println("Contact Details are ");
                 for (i = 0; i < (numOfContactDetails + numOfAddedContacts) * 7; i++) {
@@ -100,6 +65,47 @@ class PersonContact{
                     System.out.println(arrayInput[i]);
                 }
             }
+            case 3 -> {
+                System.out.println("Enter name of person whose details you want to delete");
+                String nameToDelete = sc.next();
+                int updatedNumberOfElements = numOfContactDetails * 7;
+                for (i = 0; i < numOfContactDetails * 7; i++) {
+                    if (nameToDelete.equals(arrayInput[i])) {
+                        for (int m = 0; m < 7; m++) {
+                            for (int k = i; k < numOfContactDetails * 7; k++) {
+                                arrayInput[k] = arrayInput[k + 1];
+                            }
+                        }
+                        updatedNumberOfElements = updatedNumberOfElements - 7;
+                    }
+                }
+                System.out.println("Updated contact Details are ");
+                for (i = 0; i < updatedNumberOfElements; i++) {
+                    System.out.println(arrayInput[i]);
+                }
+            }
+            default -> System.err.println("Please enter correct operation number");
+        }
+    }
+    void createContact(int numOfContacts) {
+        while(numOfContacts > 0) {
+            System.out.println("For Person"+j);
+            System.out.println("Add first name");
+            arrayInput[i++] = sc.next();
+            System.out.println("Add last name");
+            arrayInput[i++] = sc.next();
+            System.out.println("Add address");
+            arrayInput[i++] = sc.next();
+            System.out.println("Add state");
+            arrayInput[i++] = sc.next();
+            System.out.println("Add zip");
+            arrayInput[i++] = sc.next();
+            System.out.println("Add phone number");
+            arrayInput[i++] = sc.next();
+            System.out.println("Add email");
+            arrayInput[i++] = sc.next();
+            numOfContacts--;
+            j++;
         }
     }
 }
