@@ -28,6 +28,16 @@ public class AddressBookSystem {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         AddressBook person1 = new AddressBook();
+        System.out.println("Do u want to enter new contact(Y-yes/N-no)");
+        String ans = sc.nextLine();
+        if(ans.equals("Y"))
+        {
+            AddressBook person2 = new AddressBook();
+        }
+        else {
+            System.out.println("----Thank you----");
+        }
     }
 }
