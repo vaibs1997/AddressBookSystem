@@ -15,7 +15,7 @@ class PersonContact{
     public void operations(){
         int numOfContactDetails, choice;
         System.out.println("Create a contact list");
-        System.out.println("Enter how many contact details you want to create");
+        System.out.print("Enter how many contact details you want to create: ");
         numOfContactDetails = sc.nextInt();
         int numOfDetails = numOfContactDetails;
         createContact(numOfDetails);
@@ -27,7 +27,7 @@ class PersonContact{
         switch (choice) {
             case 1 -> {
                 int numOfAddedContacts;
-                System.out.println("Enter how many contact details you want to add");
+                System.out.println("Enter how many contact details you want to add: ");
                 numOfAddedContacts = sc.nextInt();
                 int numOfAddedCon = numOfAddedContacts;
                 createContact(numOfAddedCon);
@@ -38,24 +38,24 @@ class PersonContact{
                 }
             }
             case 2 -> {
-                System.out.println("Enter name of person whose details you want to edit");
+                System.out.println("Enter name of person whose details you want to edit: ");
                 String keyName = sc.next();
                 for (i = 0; i < numOfContactDetails * 7; i++) {
                     if (keyName.equals(arrayInput[i])) {
-                        System.out.println("Edit details of person " + keyName);
-                        System.out.println("Add first name");
+                        System.out.println("Edit details of person: " + keyName);
+                        System.out.print("Add first name: ");
                         arrayInput[i++] = sc.next();
-                        System.out.println("Add last name");
+                        System.out.print("Add last name: ");
                         arrayInput[i++] = sc.next();
-                        System.out.println("Add address");
+                        System.out.print("Add address: ");
                         arrayInput[i++] = sc.next();
-                        System.out.println("Add state");
+                        System.out.print("Add state: ");
                         arrayInput[i++] = sc.next();
-                        System.out.println("Add zip");
+                        System.out.print("Add zip: ");
                         arrayInput[i++] = sc.next();
-                        System.out.println("Add phone number");
+                        System.out.print("Add phone number: ");
                         arrayInput[i++] = sc.next();
-                        System.out.println("Add email");
+                        System.out.print("Add email: ");
                         arrayInput[i++] = sc.next();
                     }
                 }
@@ -84,25 +84,25 @@ class PersonContact{
                     System.out.println(arrayInput[i]);
                 }
             }
-            default -> System.err.println("Please enter correct operation number");
+            default -> System.err.println("Please enter correct operation number: ");
         }
     }
     void createContact(int numOfContacts) {
         while(numOfContacts > 0) {
             System.out.println("For Person"+j);
-            System.out.println("Add first name");
+            System.out.print("Add first name: ");
             arrayInput[i++] = sc.next();
-            System.out.println("Add last name");
+            System.out.print("Add last name: ");
             arrayInput[i++] = sc.next();
-            System.out.println("Add address");
+            System.out.print("Add address: ");
             arrayInput[i++] = sc.next();
-            System.out.println("Add state");
+            System.out.print("Add state: ");
             arrayInput[i++] = sc.next();
-            System.out.println("Add zip");
+            System.out.print("Add zip: ");
             arrayInput[i++] = sc.next();
-            System.out.println("Add phone number");
+            System.out.print("Add phone number: ");
             arrayInput[i++] = sc.next();
-            System.out.println("Add email");
+            System.out.print("Add email: ");
             arrayInput[i++] = sc.next();
             numOfContacts--;
             j++;
